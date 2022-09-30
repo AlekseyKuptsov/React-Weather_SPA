@@ -1,7 +1,22 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import LocationService from "../../services/LocationService";
 import HeaderIconSelector from "../../assets/icons/HeaderIconSelector";
 import './header.scss';
 
 const Header = () => {
+    const navigate = useNavigate();
+    const {findLocation} = LocationService();
+    const [city, setCity] = useState('');
+    const onChange = (value) => {
+        setCity(value);
+    }
+    const onSearch = () => {
+        findLocation(city);
+        setCity('');
+        navigate('/citylist')
+    }
+
     return (
         <header className="header">
             <div className="container">
@@ -17,16 +32,24 @@ const Header = () => {
                             <HeaderIconSelector id = 'theme'/>
                         </div>
                         <div className="header__cities">
-                            <select name="city" id="city">
-                                <option value="">Выбрать город</option>
-                                <option value="">Нововсибирск</option>
-                                <option value="">Москва</option>
-                                <option value="">Санкт-Петербург</option>
-                            </select>
+                            <form action="#"
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+                                    onSearch();
+                                }}>
+                                < input type = "text"
+                                    required
+                                    name = "city"
+                                    id="city"
+                                    value={city}
+                                    placeholder="Enter city name"
+                                    onChange={(e) => {onChange(e.target.value)}
+                                }/>
+                                <button type="submit" className="button header__button">Search</button>
+                            </form>
                         </div>
                     </div>   
                 </div>
-
             </div>
         </header>
     );

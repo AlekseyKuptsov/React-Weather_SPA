@@ -24,14 +24,25 @@
     }
     &__cities {
         font-weight: 400;
-        select {
+        display: flex;
+        input {
             height: 35px;
-            width: 190px;
+            width: 230px;
             border-radius: 7px;
             border: none;
             background-color: $second-color;
+            margin-right: 20px;
+            padding: 0 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-        
+    }
+    &__button {
+        background-color: $second-color;
+        height: 35px;
+        &:hover {
+            background-color: white;
+            border: 1px solid $second-color;
+        }
     }
     &__theme {
         svg {

@@ -2,27 +2,22 @@
 
 .forecast {
     margin-top: 30px;
-    &__buttons {
-        display: flex;
-        button {
-            margin-right: 15px;
-        }
-    }
     &__cards {
-        // display: flex;
-        // justify-content: space-between;
         padding: 20px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         border-radius: 15px;
         margin-top: 10px;
         position: relative;
+        &:hover {
+            cursor: pointer;
+        }
         &-item {
             margin: 0 8px;
             padding: 10px;
             border-radius: 15px;
             background-color: $second-color;
             width: 150px !important;
-            height: 200px;
+            min-height: 200px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: start;
             display: flex !important;
@@ -33,7 +28,7 @@
         }
         &-icon {
             height: 55px;
-            svg {
+            img {
                 display: block;
                 height: 100%;
             }

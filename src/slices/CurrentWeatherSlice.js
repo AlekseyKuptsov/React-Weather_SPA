@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk,  createSelector } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { useHttp } from "../hooks/http.hook";
 
 const initialState = {
@@ -7,9 +7,9 @@ const initialState = {
 
 export const fetchCurrentWeather = createAsyncThunk(
     'currentWeather/fetchCurrentWeather',
-    async ([apiBase, city, apiKey]) => {
+    async ([apiBase, lat, lon, apiKey, elements]) => {
         const request = useHttp();
-        return await request(`${apiBase}${city}?${apiKey}&lang=ru&unitGroup=base&include=current,hours`)
+        return await request(`${apiBase}/${lat},${lon}?${apiKey}&lang=en&unitGroup=base&include=current,hours${elements}`)
     }
 )
 
@@ -24,8 +24,9 @@ const currentWeatherSlice = createSlice({
             })
             .addCase(fetchCurrentWeather.fulfilled, (state, action) => {
                 state.currentWeatherLoadingStatus = 'loaded';
-                state.currentConditions = action.payload.currentConditions;
+                state.currentConditions = action.payload;
                 state.days = action.payload.days;
+                state.daily = [action.payload.days[0].hours[8], action.payload.days[0].hours[14], action.payload.days[0].hours[20], action.payload.days[0].hours[2]]
             })
             .addCase(fetchCurrentWeather.rejected, state => {
                 state.currentWeatherLoadingStatus = 'error'
@@ -34,6 +35,5 @@ const currentWeatherSlice = createSlice({
     }
 })
 
-const {actions, reducer} = currentWeatherSlice;
+const {reducer} = currentWeatherSlice;
 export default reducer;
-export const {currentWeatherFetching, currentWeatherFetched, currentWeatherFetchingError} = actions;

@@ -34,3 +34,22 @@ button {
     background-color: $second-color;
   }
 }
+
+.spinner {
+  display: block;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.loading-error {
+    display: block;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.error-message {
+  font-size: 24px;
+  font-weight: 500;
+  color: $error;
+}
+

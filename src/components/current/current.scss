@@ -32,16 +32,12 @@
             font-weight: 500;
         }
         &-icon {
-            width: 120px;
+            width: 180px;
             p.current__temp-precip {
                 display: block;
                 text-align: center;
                 font-size: 18px;
                 margin-top: 3px;
-            }
-            svg {
-                display: block;
-                height: 120px;
             }
         }
         &-item {
@@ -50,9 +46,10 @@
             margin-bottom: 25px;
             align-items: center;
             height: 165px;
-            svg {
+            img {
                 display: block;
-                height: 100%;
+                height: 120px;
+                margin: 0 auto;
             }
         }
         p {
