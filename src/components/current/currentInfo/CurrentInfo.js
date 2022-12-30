@@ -54,7 +54,7 @@ const CurretInfo = ({temp, feel, pressure, humidity, windSpeed, windDirDeg}) => 
                         <CurrentIconSelector id ='preasure'/>
                     </div>
                     <div className="current__info-descr">Pressure</div>
-                    <div className="current__info-value">{Math.round(Number(pressure) / 1.333)} мм ртутного столба</div>
+                    <div className="current__info-value">{Math.round(Number(pressure) / 1.333)} millimetre of mercury</div>
                 </div>
                 <div className="current__info-item">
                     <div className="current__info-icon">

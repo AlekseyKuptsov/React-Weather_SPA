@@ -1,0 +1,8 @@
+@import '../../styles/variables.scss';
+
+.footer {
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}

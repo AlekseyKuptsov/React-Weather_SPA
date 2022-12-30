@@ -1,7 +1,7 @@
 import WeatherIconSelector from "../../../assets/icons/WeatherIconSelector";
 import setDate from "../../../utils/setDate";
 
-const CurrentTemp = ({temp, id, descr, city}) => {
+const CurrentTemp = ({temp, id, descr, city, utc}) => {
     const {minutes, hours, day, fMonth} = setDate();
     return (
         <div className="current__temp">
@@ -18,8 +18,8 @@ const CurrentTemp = ({temp, id, descr, city}) => {
                     <p className="current__temp-precip">{descr}</p>
                 </div>
             </div>
-            <p>Time: {hours}:{minutes}</p>
-            <p>Region: {city}</p>
+            <p>Time UTC: {hours}:{minutes}</p>
+            <p>Region: {city}, UTC{utc <= 0 ? utc : '+'+utc}</p>
         </div>
     );
 }

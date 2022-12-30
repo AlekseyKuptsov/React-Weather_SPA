@@ -11,6 +11,12 @@ body {
   padding: 30px 0;
 }
 
+main {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  min-height: 750px;
+}
+
 p {
   margin: 0;
   padding: 0;
@@ -19,6 +25,10 @@ p {
 .container {
   width: 1200px;
   margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
 }
 
 button {

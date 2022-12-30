@@ -1,7 +1,10 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setLocation } from '../../slices/LocationSlice';
+import { useEffect } from 'react';
+import { useParams } from 'react-router';
 import { useNavigate } from 'react-router-dom';
+import LocationService from '../../services/LocationService';
 import WeatherService from '../../services/WeatherService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
@@ -9,10 +12,11 @@ import './citiesList.scss';
 
 const CitiesList = () => {
     const navigate = useNavigate();
+    const {findLocation} = LocationService();
+    const {request} = useParams();
     const dispatch = useDispatch();
     const cities = useSelector(state => state.findLocation);
     const loading = useSelector(state => state.findLocation.findLoadingStatus);
-    const {getCurrentWeather} = WeatherService();
     const setCity = (e, cities) => {
         const city = cities.filter(item => {
             return item.id === e.target.closest('div').getAttribute('id');
@@ -22,14 +26,12 @@ const CitiesList = () => {
             lat: city[0].coordinates.latitude,
             lon: city[0].coordinates.longitude
         }));
-        window.localStorage.setItem('location', JSON.stringify({
-            city: city[0].name,
-            lat: city[0].coordinates.latitude,
-            lon: city[0].coordinates.longitude
-        }));
-        navigate('/');
-        // getCurrentWeather(city[0].coordinates.latitude, city[0].coordinates.longitude);
+        navigate(`/${city[0].name}&lat=${city[0].coordinates.latitude}&lon=${city[0].coordinates.longitude}`);
     }
+
+    useEffect(() => {
+        findLocation(request);
+    }, [request]);
 
     if (loading === 'loading') {
         return (
@@ -60,7 +62,7 @@ const CitiesList = () => {
             <section className='cities'>
                 <div className="container">
                     <div className="cities__wrapper">
-                        <h1>Search Results</h1>
+                        <h1>Search Results "{request}"</h1>
                         {items}
                     </div>
                 </div>

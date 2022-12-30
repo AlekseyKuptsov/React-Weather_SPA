@@ -30,11 +30,11 @@ const locationSlice = createSlice({
             .addCase(fetchLocation.fulfilled, (state, action) => {
                 state.locationLoadingStatus = 'loaded';
                 state.city = action.payload;
-                window.localStorage.setItem('location', JSON.stringify({
-                    city: action.payload.city,
-                    lat: action.payload.lat,
-                    lon: action.payload.lon
-                }));
+                // window.localStorage.setItem('location', JSON.stringify({
+                //     city: action.payload.city,
+                //     lat: action.payload.lat,
+                //     lon: action.payload.lon
+                // }));
             })
             .addCase(fetchLocation.rejected, state => {
                 state.locationLoadingStatus = 'error'

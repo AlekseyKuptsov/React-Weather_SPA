@@ -23,7 +23,7 @@ const DailyConditions = () => {
             weather.map((item, i) => {
                 return (
                     <div className="daily__weather-item" key={i}>
-                        <div>{i === 0 ? "Утро" : i === 1 ? "День" : i === 2 ? "Вечер" : "Ночь"}</div>
+                        <div>{i === 0 ? "Morning" : i === 1 ? "Day" : i === 2 ? "Evening" : "Night"}</div>
                         <div>{Math.round(item.temp - 273)}&deg;C</div>
                         <div><WeatherIconSelector id={item.precip}/></div>
                         <div>{Math.round(Number(item.pressure) / 1.333)}</div>
@@ -41,12 +41,12 @@ const DailyConditions = () => {
         <div className="daily__weather">
             <div className="daily__weather-item">
                 <div>{day} {fMonth}</div>
-                <div>Температура</div>
-                <div>Осадки</div>
-                <div>Давление мм.рт.ст.</div>
-                <div>Влажность</div>
-                <div>Ветер м/с</div>
-                <div>Ощущается</div>
+                <div>Temperature</div>
+                <div>Precipitation</div>
+                <div>Pressure mm Hg</div>
+                <div>Humidity</div>
+                <div>Wind m/s</div>
+                <div>Feels like</div>
             </div>
             {items}
         </div>

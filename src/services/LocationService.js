@@ -5,7 +5,7 @@ import { useCallback } from "react";
 
 const LocationService = () => {
     const dispatch = useDispatch();
-    const _apiBase = 'https://spott.p.rapidapi.com/places/autocomplete?limit=10&skip=0&'
+    const _apiBase = 'https://spott.p.rapidapi.com/places/autocomplete?limit=15&skip=0&'
     const options = {
         method: 'GET',
         body: null,

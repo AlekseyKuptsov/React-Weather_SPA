@@ -22,8 +22,8 @@ const DailyDaylight = () => {
                     <p>{daylightCond.sunrise?.slice(0, 5) ?? null}</p>
                 </div>
                 <div className='daily__daylight-duration'>
-                    <p><span>Световой день</span></p>
-                    <p>{dailightHours} ч {dailightMinutes} мин</p>
+                    <p><span>Daylight</span></p>
+                    <p>{dailightHours} h {dailightMinutes} min</p>
                 </div>
                 <div className='daily__daylight-set'>
                     <div className='daily__daylight-icon'>
@@ -40,7 +40,7 @@ const DailyDaylight = () => {
                     <p>{daylightCond.moonrise?.slice(0, 5) ?? null}</p>
                 </div>
                 <div className='daily__daylight-duration'>
-                    <p><span>Фаза луны</span></p>
+                    <p><span>Moonphase</span></p>
                     <p>{setMoonphase(daylightCond.moonphase)}</p>
                 </div>
                 <div className='daily__daylight-set'>
@@ -55,7 +55,7 @@ const DailyDaylight = () => {
                     <img src={uvindex} alt="uvindex" />
                 </div>
                 <div>
-                    <p><span>УФ-индекс</span></p>
+                    <p><span>UV-index</span></p>
                     <p>{daylightCond.uvindex ?? null}</p>
                 </div>
                 <div className = 'daily__daylight-icon'>

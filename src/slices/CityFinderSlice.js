@@ -17,7 +17,9 @@ const cityFinderSlice = createSlice({
     name: 'findLocation',
     initialState,
     reducers: {
-        
+        setRequest: (state, action) => {
+            state.request = action.payload
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -35,6 +37,6 @@ const cityFinderSlice = createSlice({
     }
 })
 
-const {reducer} = cityFinderSlice;
+const {reducer, actions} = cityFinderSlice;
 export default reducer;
-// export const {setLocation} = actions;
+export const {setRequest} = actions;

@@ -1,28 +1,28 @@
 const setMoonphase = (moonphase) => {
     switch (true) {
         case (moonphase > 0.73): {
-            return "Старя луна";
+            return "Waning crescent";
         }
         case (moonphase <= 0.73 && moonphase > 0.67): {
-            return "Последняя четверть";
+            return "Last quarter";
         }
         case (moonphase <= 0.67 && moonphase > 0.53): {
-            return "Убывающая луна";
+            return "Waning gibbous";
         }
         case (moonphase <= 0.53 && moonphase >= 0.47): {
-            return "Полнолуние";
+            return "Full moon";
         }
         case (moonphase < 0.47 && moonphase >= 0.33): {
-            return "Прибывающая луна";
+            return "Waxing gibbous";
         }
         case (moonphase < 0.33 && moonphase >= 0.27): {
-            return "Первая четверть";
+            return "First quarter";
         }
         case (moonphase < 0.27 && moonphase >= 0.2): {
-            return "Молодая луна";
+            return "Waxing crescent";
         }
         case (moonphase < 0.2): {
-            return "Новолуние";
+            return "New moon";
         }
         default: {
             return null

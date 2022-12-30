@@ -1,10 +1,10 @@
 const setDate = (currentDate) => {
     const date = currentDate ? new Date(currentDate) : new Date();
-    const month = date.getMonth();
-    const day = date.getDate();
-    const hours = date.getHours();
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    const dayNumber = date.getDay();
+    const month = date.getUTCMonth();
+    const day = date.getUTCDate();
+    const hours = date.getUTCHours();
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+    const dayNumber = date.getUTCDay();
     let fMonth;
     let fDay;
 

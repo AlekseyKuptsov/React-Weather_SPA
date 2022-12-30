@@ -1,5 +1,7 @@
 import {useEffect} from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+
 import { useDispatch } from 'react-redux';
 import { setLocation } from '../../slices/LocationSlice';
 import WeatherService from '../../services/WeatherService';
@@ -12,11 +14,29 @@ import ErrorMessage from '../errorMessage/ErrorMessage';
 
 const MainPage = () => {
     const dispatch = useDispatch();
-    const {getCurrentWeather}  = WeatherService();
     const {getLocation} = LocationService();
+    const {getCurrentWeather}  = WeatherService();
     const location = useSelector(state => state.location);
-    const status = useSelector(state => state.location.locationLoadingStatus);
     const weatherStatus = useSelector(state => state.currentWeather.currentWeatherLoadingStatus);
+    const {city} = useParams();
+
+    useEffect(() => {
+        if (!city) getLocation()  
+    }, [city])
+    
+    useEffect(() => {
+        if (!city && location.locationLoadingStatus === 'loaded') {
+            getCurrentWeather(location.city.lat, location.city.lon);
+        } else if (city) {
+            dispatch(setLocation({
+                city: city.substring(0, city.indexOf('lat')-1),
+                lat: city.substring(city.indexOf('lat')+4, city.indexOf('lon')-1),
+                lon: city.substring(city.indexOf('lon')+4)
+            }));
+            getCurrentWeather(city.substring(city.indexOf('lat')+4, city.indexOf('lon')-1), city.substring(city.indexOf('lon')+4));
+        }
+    }, [location.locationLoadingStatus, city])        
+
 
     // const geo = navigator.geolocation;
     // function success(pos) {
@@ -29,30 +49,11 @@ const MainPage = () => {
     // };
     // geo.getCurrentPosition(success);
 
-    useEffect(() => {
-        if (!window.localStorage.getItem('location')) {
-            getLocation();
-        } else {
-            dispatch(setLocation({
-                city: JSON.parse(window.localStorage.getItem('location')).city,
-                lat: JSON.parse(window.localStorage.getItem('location')).lat,
-                lon: JSON.parse(window.localStorage.getItem('location')).lon
-            }));
-        }
-
-    }, [])
-
-    useEffect(() => {
-        if (status === 'loaded') {
-            getCurrentWeather(JSON.parse(window.localStorage.getItem('location')).lat, JSON.parse(window.localStorage.getItem('location')).lon);
-        }
-    }, [status])
-
-    if (status === 'loading' || weatherStatus === 'loading' || weatherStatus === '') {
+    if (location.locationLoadingStatus === 'loading' || weatherStatus === 'loading' || weatherStatus === '') {
         return (
             <Spinner/>
         )
-    } else if (status === 'error' || weatherStatus === 'error') {
+    } else if (location.locationLoadingStatus === 'error' || weatherStatus === 'error') {
         return (
             <ErrorMessage/>
         )

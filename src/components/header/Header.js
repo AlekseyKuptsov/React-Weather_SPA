@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LocationService from "../../services/LocationService";
 import HeaderIconSelector from "../../assets/icons/HeaderIconSelector";
 import './header.scss';
@@ -12,21 +13,22 @@ const Header = () => {
         setCity(value);
     }
     const onSearch = () => {
-        findLocation(city);
         setCity('');
-        navigate('/citylist')
+        navigate(`/citylist/${city}`)
     }
 
     return (
         <header className="header">
             <div className="container">
                 <div className="header__wrapper">
-                    <div className="header__item">
-                        <div className="header__logo">
-                            <HeaderIconSelector id='header_logo'/>
-                        </div>
+                    <Link to='/'>
+                        <div className="header__item">
+                            <div className="header__logo">
+                                <HeaderIconSelector id='header_logo'/>
+                            </div>
                         <div className="header__title">React Weather App</div>
-                    </div>
+                    </div>                        
+                    </Link>
                     <div className="header__item">
                         <div className="header__theme">
                             <HeaderIconSelector id = 'theme'/>
