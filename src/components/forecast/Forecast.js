@@ -5,7 +5,8 @@ import Slider from 'react-slick';
 import './forecast.scss';
 
 const Forecast = () => {
-    const forecast = useSelector(state => state.currentWeather.days)
+    const forecast = useSelector(state => state.currentWeather.days);
+    const todayWeather = useSelector(state => state.currentWeather.currentConditions);
 
     const settings = {
         dots: false,
@@ -18,7 +19,7 @@ const Forecast = () => {
     const renderCardItem = (data) => {
         return (
             data.map((item, i) => {
-                const {fDay, fMonth, day} = setDate(item.datetimeEpoch*1000);
+                const {fDay, fMonth, day} = setDate((item.datetimeEpoch + (3600 * todayWeather.tzoffset))*1000);
                 return (
                     <div className="forecast__cards-item" key={i}>
                         <div className="forecast__cards-day">{fDay}</div>

@@ -19,7 +19,7 @@ const CurrentTemp = ({temp, id, descr, city, utc}) => {
                 </div>
             </div>
             <p>Time UTC: {hours}:{minutes}</p>
-            <p>Region: {city}, UTC{utc <= 0 ? utc : '+'+utc}</p>
+            <p>Region: {city}, UTC {utc <= 0 ? utc : '+'+utc}</p>
         </div>
     );
 }

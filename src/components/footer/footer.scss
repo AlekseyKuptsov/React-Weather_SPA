@@ -4,5 +4,20 @@
     &__wrapper {
         display: flex;
         justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+        img {
+            height: 30px;
+            width: 30px;
+        }
+    }
+    &__data {
+        margin-right: 5px;
     }
 }

@@ -2,7 +2,7 @@
 
 .current {
     &__temp, &__info {
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 20px $shadows-color;
         border-radius: 15px;
         // height: 300px;
     }
@@ -82,7 +82,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 5px $shadows-color;
             svg {
                 display: block;
                 width: 90%;

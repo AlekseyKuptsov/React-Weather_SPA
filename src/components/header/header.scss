@@ -33,7 +33,7 @@
             background-color: $second-color;
             margin-right: 20px;
             padding: 0 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px $shadows-color;
         }
     }
     &__button {
