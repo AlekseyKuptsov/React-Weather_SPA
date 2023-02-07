@@ -26,7 +26,7 @@ const Header = () => {
                             <div className="header__logo">
                                 <HeaderIconSelector id='header_logo'/>
                             </div>
-                        <div className="header__title">React Weather App</div>
+                        <div className="header__title">World Weather</div>
                     </div>                        
                     </Link>
                     <div className="header__item">

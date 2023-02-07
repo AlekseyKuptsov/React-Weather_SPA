@@ -35,6 +35,7 @@ const setDate = (currentDate) => {
         default: fDay = null;
     }
 
+
     return {fMonth, day, fDay, hours, minutes}
 }
 

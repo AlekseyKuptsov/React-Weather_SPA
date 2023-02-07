@@ -3,7 +3,6 @@ import WeatherIconSelector from "../../../assets/icons/WeatherIconSelector";
 import setDate from "../../../utils/setDate";
 
 const DailyConditions = () => {
-    const {day, fMonth} = setDate();
     const transformData = (data) => {
         return {
             descr: data.datetime,
@@ -16,7 +15,9 @@ const DailyConditions = () => {
         }
     }
     const dailyWeather = useSelector(state => state.currentWeather.daily);
+    const timeZone = useSelector(state => state.currentWeather.currentConditions.tzoffset);
     const weather = dailyWeather.map(item => transformData(item));
+    const {day, fMonth} = setDate((Date.now() + (3600*timeZone)*1000));
     
     const renderItems = (weather) => {
         return (

@@ -25,8 +25,8 @@ const Forecast = () => {
                         <div className="forecast__cards-day">{fDay}</div>
                         <div className="forecast__cards-date">{day} {fMonth}</div>
                         <div className="forecast__cards-icon"><WeatherIconSelector id={item.icon}/></div>
-                        <div className="forecast__cards-maxtemp">{Math.round(item.tempmax - 273)}&deg;C</div>
-                        <div className="forecast__cards-mintemp">{Math.round(item.tempmin - 273)}&deg;C</div>
+                        <div className="forecast__cards-maxtemp">{Math.round(item.hours[13].temp - 273)}&deg;C</div>
+                        <div className="forecast__cards-mintemp">{Math.round(item.hours[23].temp - 273)}&deg;C</div>
                         <div className="forecast__cards-precip">{item.conditions}</div>
                     </div>
                 )

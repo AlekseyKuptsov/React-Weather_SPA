@@ -26,7 +26,7 @@ const currentWeatherSlice = createSlice({
                 state.currentWeatherLoadingStatus = 'loaded';
                 state.currentConditions = action.payload;
                 state.days = action.payload.days;
-                state.daily = [action.payload.days[0].hours[8], action.payload.days[0].hours[14], action.payload.days[0].hours[20], action.payload.days[0].hours[2]]
+                state.daily = [action.payload.days[0].hours[7], action.payload.days[0].hours[13], action.payload.days[0].hours[18], action.payload.days[0].hours[23]]
             })
             .addCase(fetchCurrentWeather.rejected, state => {
                 state.currentWeatherLoadingStatus = 'error'
