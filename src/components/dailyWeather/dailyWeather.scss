@@ -2,15 +2,17 @@
 
 .daily {
     margin-top: 30px;
+    color: var(--text-color);
     &__wrapper {
         display: flex;
         justify-content: space-between;
     }
     &__weather, &__daylight {
-        box-shadow: 0 0 20px $shadows-color;
+        box-shadow: 0 0 20px var(--shadows-color);
         border-radius: 15px;
     }
     &__weather {
+        background-color: var(--bg-second-color);
         padding: 20px 20px;
         width: 860px;
         display: grid;
@@ -35,6 +37,7 @@
         }
     }
     &__daylight {
+        background-color: var(--bg-second-color);
         width: 290px;
         display: block;
         padding: 20px;
@@ -46,7 +49,7 @@
             justify-content: space-between;
             align-items: center;
             span {
-                color: $third-color;
+                color: var(--third-color);
             }
         }
         &-icon {

@@ -19,7 +19,7 @@ const App = () => {
                 <Route index element={<MainPage/>}/>
                 <Route path=':city' element={<MainPage/>}/>
                 <Route path='citylist/:request' element={<CitiesList/>}/>   
-                <Route path='*' element={<ErrorMessage/>}/>  
+                <Route path='*' element={<ErrorMessage/>}/>
               </Route>
             </Routes>
           </Suspense>

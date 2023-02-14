@@ -3,8 +3,9 @@
 .forecast {
     margin-top: 30px;
     &__cards {
+        background-color: var(--bg-second-color);
         padding: 20px;
-        box-shadow: 0 0 20px $shadows-color;
+        box-shadow: 0 0 20px var(--shadows-color);
         border-radius: 15px;
         margin-top: 10px;
         position: relative;
@@ -15,16 +16,16 @@
             margin: 0 8px;
             padding: 10px;
             border-radius: 15px;
-            background-color: $second-color;
+            background-color: var(--second-color);
             width: 150px !important;
             min-height: 200px;
-            box-shadow: 0 0 10px $shadows-color;
+            box-shadow: 0 0 10px var(--shadows-color);
             text-align: start;
             display: flex !important;
             flex-direction: column;
             justify-content: space-between;
             font-size: 13px;
-            color: $third-color;
+            color: var(--third-color);
         }
         &-icon {
             height: 55px;

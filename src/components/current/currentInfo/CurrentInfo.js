@@ -1,4 +1,5 @@
 import CurrentIconSelector from "../../../assets/icons/CurretIconSelector";
+import info_bg_light from '../../../assets/img/info_bg_light.png';
 
 const CurretInfo = ({temp, feel, pressure, humidity, windSpeed, windDirDeg}) => {
     let windDir;
@@ -43,34 +44,34 @@ const CurretInfo = ({temp, feel, pressure, humidity, windSpeed, windDirDeg}) => 
     return (
         <div className="current__info">
             <div className="current__info-item">
-                    <div className="current__info-icon">
-                        <CurrentIconSelector id='temperature'/>
-                    </div>
-                    <div className="current__info-descr">Temperature</div>
-                    <div className="current__info-value">{Math.round(temp - 273)}&deg; - feels like {Math.round(feel - 273)}&deg;</div>                        
+                <div className="current__info-icon">
+                    <CurrentIconSelector id='temperature'/>
                 </div>
-                <div className="current__info-item">
-                    <div className="current__info-icon">
-                        <CurrentIconSelector id ='preasure'/>
-                    </div>
-                    <div className="current__info-descr">Pressure</div>
-                    <div className="current__info-value">{Math.round(Number(pressure) / 1.333)} millimetre of mercury</div>
-                </div>
-                <div className="current__info-item">
-                    <div className="current__info-icon">
-                        <CurrentIconSelector id='humidity'/>
-                    </div>
-                    <div className="current__info-descr">Humidity</div>
-                    <div className="current__precipitation-value">{Math.round(humidity)}%</div>
-                </div>
-                <div className="current__info-item">
-                    <div className="current__info-icon">
-                        <CurrentIconSelector id='wind'/>
-                    </div>
-                    <div className="current__info-descr">Wind</div>
-                    <div className="current__info-value">{windSpeed} m/s {windDir}</div>
-                </div>
+                <div className="current__info-descr">Temperature:</div>
+                <div className="current__info-value">{Math.round(temp - 273)}&deg; - feels like {Math.round(feel - 273)}&deg;</div>                        
             </div>
+            <div className="current__info-item">
+                <div className="current__info-icon">
+                    <CurrentIconSelector id ='preasure'/>
+                </div>
+                <div className="current__info-descr">Pressure:</div>
+                <div className="current__info-value">{Math.round(Number(pressure) / 1.333)} millimetre of mercury</div>
+            </div>
+            <div className="current__info-item">
+                <div className="current__info-icon">
+                    <CurrentIconSelector id='humidity'/>
+                </div>
+                <div className="current__info-descr">Humidity:</div>
+                <div className="current__precipitation-value">{Math.round(humidity)}%</div>
+            </div>
+            <div className="current__info-item">
+                <div className="current__info-icon">
+                    <CurrentIconSelector id='wind'/>
+                </div>
+                <div className="current__info-descr">Wind:</div>
+                <div className="current__info-value">{windSpeed} m/s {windDir}</div>
+            </div>
+        </div>
     );
 }
  

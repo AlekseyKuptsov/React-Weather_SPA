@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import LocationService from "../../services/LocationService";
+import ThemeToggler from "../themeToggler/ThemeToggler";
 import HeaderIconSelector from "../../assets/icons/HeaderIconSelector";
 import './header.scss';
 
@@ -30,9 +31,7 @@ const Header = () => {
                     </div>                        
                     </Link>
                     <div className="header__item">
-                        <div className="header__theme">
-                            <HeaderIconSelector id = 'theme'/>
-                        </div>
+                        <ThemeToggler/>                    
                         <div className="header__cities">
                             <form action="#"
                                 onSubmit={(e) => {

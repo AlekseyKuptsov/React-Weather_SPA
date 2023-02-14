@@ -2,7 +2,7 @@
 
 .current {
     &__temp, &__info {
-        box-shadow: 0 0 20px $shadows-color;
+        box-shadow: 0 0 20px var(--shadows-color);
         border-radius: 15px;
         // height: 300px;
     }
@@ -12,8 +12,9 @@
         justify-content: space-between;
     }
     &__temp {
-        padding: 20px;
-        width: 400px;
+        padding: 25px;
+        width: 450px;
+        background-color: var(--bg-second-color);
         &-descr {
             display: flex;
             flex-direction: column;
@@ -27,7 +28,7 @@
         }
         &-value {
             font-size: 64px;
-            color: $main-color;
+            color: var(--main-color);
             font-weight: 500;
         }
         &-icon {
@@ -53,20 +54,21 @@
         }
         p {
             font-size: 25px;
-            color: $third-color;
+            color: var(--third-color);
             line-height: 30px;
             margin-top: 15px;
             text-align: left;
         }
     }
     &__info {
-        width: 750px;
+        background-color: var(--bg-second-color);
+        width: 700px;
         padding: 32px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-image: url(../../assets/img/cloud_bg.png);
-        background-size: cover;
+        font-size: 18px;
+        color: var(--text-color);
         &-item {
             display: flex;
             align-items: center;
@@ -76,21 +78,36 @@
         }
 
         &-icon {
-            height: 36px;
-            width: 36px;
+            height: 42px;
+            width: 42px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 5px $shadows-color;
-            svg {
+            box-shadow: 0 0 5px var(--shadows-color);
+            background-color: var(--icon-bg);
+            img {
                 display: block;
-                width: 90%;
+                width: 100%;
             }
         }
 
         &-descr {
-            color: $third-color;
+            color: var(--current-info);
         }
+    }
+}
+
+:root[data-theme='light'] {
+    .current__info {
+        background-image: url(../../assets/img/info_bg_light.png);
+        background-size: cover;
+    }
+}
+
+:root[data-theme='dark'] {
+    .current__info {
+        background-image: url(../../assets/img/info_bg_dark.png);
+        background-size: cover;
     }
 }

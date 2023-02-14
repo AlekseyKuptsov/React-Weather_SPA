@@ -9,7 +9,7 @@ export const fetchCurrentWeather = createAsyncThunk(
     'currentWeather/fetchCurrentWeather',
     async ([apiBase, lat, lon, apiKey, elements]) => {
         const request = useHttp();
-        return await request(`${apiBase}/${lat},${lon}?${apiKey}&lang=en&unitGroup=base&include=current,hours${elements}`)
+        return await request(`${apiBase}${lat},${lon}?${apiKey}&lang=en&unitGroup=base&include=current,hours${elements}`)
     }
 )
 

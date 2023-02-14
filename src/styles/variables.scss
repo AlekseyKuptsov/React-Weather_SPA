@@ -1,8 +1,25 @@
-$bg-color: #ffffff;
-$main-color: #4793FF;
-$main-color-bt: #2E3035;
-$second-color: rgba(71, 148, 255, .2);
-$second-color-bt: #4F4F4F;
-$third-color: #939CB0;
-$error: #ff3300;
-$shadows-color: rgba(0, 0, 0, 0.1);
+:root[data-theme="light"] {
+    --bg-color: #fff;
+    --bg-second-color:#ffffff;
+    --main-color: #4793FF;
+    --second-color: rgba(71, 148, 255, .2);
+    --third-color: #939CB0;
+    --current-info: #5a636b;
+    --error: #ff3300;
+    --shadows-color: rgba(0, 0, 0, 0.1);
+    --text-color: #000000;
+    --icon-bg: rgba(255, 255, 255, 0.4);
+}
+
+:root[data-theme="dark"] {
+    --bg-color: #363636;
+    --bg-second-color:#575757;
+    --main-color:#4793FF;
+    --second-color: rgba(255, 255, 255, 0.2);
+    --third-color: #ffffff;
+    --current-info: #ffffff;
+    --error: #ff3300;
+    --shadows-color: rgba(255, 255, 255, 0.1);
+    --text-color: #d8d8d8;
+    --icon-bg: rgba(0, 0, 0, 0.3);
+}

@@ -41,7 +41,7 @@ const DailyDaylight = () => {
                 </div>
                 <div className='daily__daylight-duration'>
                     <p><span>Moonphase</span></p>
-                    <p>{setMoonphase(daylightCond.moonphase)}</p>
+                    <p>{setMoonphase(daylightCond.moonphase ? daylightCond.moonphase : null)}</p>
                 </div>
                 <div className='daily__daylight-set'>
                     <div className='daily__daylight-icon'>
