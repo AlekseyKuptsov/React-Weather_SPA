@@ -9,6 +9,7 @@
     --shadows-color: rgba(0, 0, 0, 0.1);
     --text-color: #000000;
     --icon-bg: rgba(255, 255, 255, 0.4);
+    --button-color: #fff;
 }
 
 :root[data-theme="dark"] {
@@ -22,4 +23,5 @@
     --shadows-color: rgba(255, 255, 255, 0.1);
     --text-color: #d8d8d8;
     --icon-bg: rgba(0, 0, 0, 0.3);
+    --button-color: #858585;
 }
