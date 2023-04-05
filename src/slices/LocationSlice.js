@@ -9,7 +9,10 @@ export const fetchLocation = createAsyncThunk(
     'location/fetchLocation',
     async () => {
         const request = useHttp();
-        return await request(`http://ip-api.com/json`)
+        return await request(`https://find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com/iplocation?apikey=873dbe322aea47f89dcf729dcc8f60e8`, "GET", null, {
+            'X-RapidAPI-Key': '5cc34e80eemsh26dfb20985835dep191769jsn1d72fa849e75',
+            'X-RapidAPI-Host': 'find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com'
+        })
     }
 )
 
@@ -30,11 +33,6 @@ const locationSlice = createSlice({
             .addCase(fetchLocation.fulfilled, (state, action) => {
                 state.locationLoadingStatus = 'loaded';
                 state.city = action.payload;
-                // window.localStorage.setItem('location', JSON.stringify({
-                //     city: action.payload.city,
-                //     lat: action.payload.lat,
-                //     lon: action.payload.lon
-                // }));
             })
             .addCase(fetchLocation.rejected, state => {
                 state.locationLoadingStatus = 'error'

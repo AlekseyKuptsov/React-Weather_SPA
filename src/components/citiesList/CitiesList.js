@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 import LocationService from '../../services/LocationService';
-import WeatherService from '../../services/WeatherService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import './citiesList.scss';
@@ -23,8 +22,8 @@ const CitiesList = () => {
         })
         dispatch(setLocation({
             city: city[0].name,
-            lat: city[0].coordinates.latitude,
-            lon: city[0].coordinates.longitude
+            latitude: city[0].coordinates.latitude,
+            longitude: city[0].coordinates.longitude
         }));
         navigate(`/${city[0].name}&lat=${city[0].coordinates.latitude}&lon=${city[0].coordinates.longitude}`);
     }

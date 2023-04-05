@@ -19,35 +19,24 @@ const MainPage = () => {
     const location = useSelector(state => state.location);
     const weatherStatus = useSelector(state => state.currentWeather.currentWeatherLoadingStatus);
     const {city} = useParams();
-
+    
     useEffect(() => {
-        if (!city) getLocation()  
-    }, [city])
+        if (!city) getLocation();
+    }, [city]) // eslint-disable-line react-hooks/exhaustive-deps
     
     useEffect(() => {
         if (!city && location.locationLoadingStatus === 'loaded') {
-            getCurrentWeather(location.city.lat, location.city.lon);
+            getCurrentWeather(location.city.latitude, location.city.longitude);
         } else if (city) {
             dispatch(setLocation({
                 city: city.substring(0, city.indexOf('lat')-1),
-                lat: city.substring(city.indexOf('lat')+4, city.indexOf('lon')-1),
-                lon: city.substring(city.indexOf('lon')+4)
+                latitude: city.substring(city.indexOf('lat')+4, city.indexOf('lon')-1),
+                longitude: city.substring(city.indexOf('lon')+4)
             }));
             getCurrentWeather(city.substring(city.indexOf('lat')+4, city.indexOf('lon')-1), city.substring(city.indexOf('lon')+4));
         }
-    }, [location.locationLoadingStatus, city])        
+    }, [location.locationLoadingStatus]) // eslint-disable-line react-hooks/exhaustive-deps   
 
-
-    // const geo = navigator.geolocation;
-    // function success(pos) {
-    //   var crd = pos.coords;
-
-    //   console.log('Ваше текущее местоположение:');
-    //   console.log(`Широта: ${crd.latitude}`);
-    //   console.log(`Долгота: ${crd.longitude}`);
-    //   console.log(`Плюс-минус ${crd.accuracy} метров.`);
-    // };
-    // geo.getCurrentPosition(success);
 
     if (location.locationLoadingStatus === 'loading' || weatherStatus === 'loading' || weatherStatus === '') {
         return (
