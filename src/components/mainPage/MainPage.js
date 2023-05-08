@@ -35,7 +35,7 @@ const MainPage = () => {
             }));
             getCurrentWeather(city.substring(city.indexOf('lat')+4, city.indexOf('lon')-1), city.substring(city.indexOf('lon')+4));
         }
-    }, [location.locationLoadingStatus]) // eslint-disable-line react-hooks/exhaustive-deps   
+    }, [location.locationLoadingStatus, city]) // eslint-disable-line react-hooks/exhaustive-deps   
 
 
     if (location.locationLoadingStatus === 'loading' || weatherStatus === 'loading' || weatherStatus === '') {
